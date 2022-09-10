@@ -1,0 +1,36 @@
+{
+  "name": "mern-boilerplate",
+  "version": "1.0.0",
+  "description": "mern boilerplate",
+  "main": "index.js",
+  "author": "SerFoll",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config webpack.config.client.production.js && webpack --mode=production --config webpack.config.server.js",
+    "dev": "nodemon",
+    "start": "NODE_ENV=production node ./dist/server.generated.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.0",
+    "@babel/preset-env": "^7.19.0",
+    "babel-loader": "^8.2.5",
+    "dotenv": "^16.0.2",
+    "nodemon": "^2.0.19",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.18.1",
+    "express-jwt": "^7.7.5",
+    "helmet": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.6.0"
+  }
+}

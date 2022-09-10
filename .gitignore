@@ -1,0 +1,21 @@
+###############################################
+
+# Avoid your project being littered with annoying .DS_Store files!
+.DS_Store
+.prettierignore
+
+#IGNORE FOLDERS
+backup
+design
+dist
+public
+node_modules
+
+#IGNORE FILES
+.env
+*.sketch
+*.fig
+*.xd
+
+README-template.md
+style-guide.md
