@@ -1,7 +1,9 @@
 ###############################################
 
-# Avoid your project being littered with annoying .DS_Store files!
+# Avoid project being littered with annoying .DS_Store files!
 .DS_Store
+
+#IGNORE THESE FILES
 .prettierignore
 
 #IGNORE FOLDERS
@@ -11,11 +13,12 @@ dist
 public
 node_modules
 
-#IGNORE FILES
+#IGNORE EXTENSIONS
 .env
 *.sketch
 *.fig
 *.xd
+*.log
 
 README-template.md
 style-guide.md

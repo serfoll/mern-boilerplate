@@ -8,9 +8,9 @@ const config = {
   entry: [path.join(CURRENT_WORKING_DIR, './server/server.js')],
   target: 'node',
   output: {
-    path: path.join(CURRENT_WORKING_DIR, '/dist/'),
     filename: 'server.generated.js',
     publicPath: '/dist/',
+    path: path.join(CURRENT_WORKING_DIR, 'dist'),
     libraryTarget: 'commonjs2'
   },
   externals: [nodeExternals()],
@@ -19,11 +19,18 @@ const config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: {
+          loader: 'babel-loader'
+        }
       },
       {
-        test: /\.(ttf|eot|svg|gif|jpg|png|webp)(\?[\s\S]+)?$/,
-        use: 'file-loader'
+        test: /\.(jpe?g|png|gif|svg|woff2?|fnt|webp)$/,
+        loader: 'file-loader',
+        options: {
+          name(file) {
+            return '[hash].[ext]'
+          }
+        }
       }
     ]
   }

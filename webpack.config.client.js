@@ -2,10 +2,12 @@ const CURRENT_WORKING_DIR = process.cwd()
 const path = require('path')
 const webpack = require('webpack')
 
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+
 const config = {
   name: 'browser',
   mode: 'development',
-  devtool: 'eval-source-map',
+  devtool: 'inline-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
     path.join(CURRENT_WORKING_DIR, 'client/main.js')
@@ -20,22 +22,29 @@ const config = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        loader: 'babel-loader',
+        options: {
+          plugins: ['react-refresh/babel']
+        }
       },
       {
-        test: /\.(ttf|eot|svg|gif|jpg|png|webp)(\?[\s\S]+)?$/,
-        use: 'file-loader'
+        test: /\.(jpe?g|png|gif|svg|woff2?|fnt|webp)$/,
+        loader: 'file-loader',
+        options: {
+          name(file) {
+            return '[hash].[ext]'
+          }
+        }
       }
     ]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin(),
+    new ReactRefreshWebpackPlugin()
   ],
   resolve: {
-    alias: {
-      'react-dom': '@hot-loader/react-dom'
-    }
+    extensions: ['.jsx', '.ts', '.js']
   }
 }
 

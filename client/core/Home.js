@@ -1,5 +1,8 @@
-import { Card, CardContent, CardMedia, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Typography from '@mui/material/Typography'
+import { makeStyles } from '@mui/styles'
 import React from 'react'
 
 import mernStackImg from './../assets/images/mern-stack-min.jpg'
@@ -7,21 +10,19 @@ import mernStackImg from './../assets/images/mern-stack-min.jpg'
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 600,
-    margin: auto,
+    margin: 'auto',
     marginTop: theme.spacing(5)
   },
   title: {
-    padding: `${theme.spacing(3)}px ${theme.spacing(2.5)}px ${theme.spacing(
-      2
-    )}px`,
+    padding: `${theme.spacing(3)} ${theme.spacing(2.5)} ${theme.spacing(2)}`,
     color: theme.palette.openTitle
   },
   media: {
-    minHeight400
+    minHeight: 400
   }
 }))
 
-export default Home => {
+const Home = () => {
   const classes = useStyles()
 
   return (
@@ -42,3 +43,5 @@ export default Home => {
     </Card>
   )
 }
+
+export default Home
