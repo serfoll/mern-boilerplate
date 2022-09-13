@@ -4,6 +4,7 @@ import CardMedia from '@mui/material/CardMedia'
 import Typography from '@mui/material/Typography'
 import { makeStyles } from '@mui/styles'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import mernStackImg from './../assets/images/mern-stack-min.jpg'
 
@@ -40,6 +41,9 @@ const Home = () => {
           Welcome to the MERN Boilerplate home page.
         </Typography>
       </CardContent>
+      <Link to="/users">Users</Link>
+      <Link to="/signup">Signup</Link>
+      <Link to="/signin">Signin</Link>
     </Card>
   )
 }

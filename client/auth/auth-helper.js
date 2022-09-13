@@ -21,3 +21,5 @@ const auth = {
     else return false
   }
 }
+
+export { auth }
