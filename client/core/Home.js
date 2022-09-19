@@ -43,7 +43,13 @@ const Home = () => {
       </CardContent>
       <Link to="/users">Users</Link>
       <Link to="/signup">Signup</Link>
-      <Link to="/signin">Signin</Link>
+      <Link
+        to={{
+          pathname: '/signin'
+        }}
+      >
+        Signin
+      </Link>
     </Card>
   )
 }

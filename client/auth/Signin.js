@@ -1,6 +1,15 @@
-import React, { useState } from 'react'
-import { Navigate } from 'react-router-dom'
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Icon,
+  TextField,
+  Typography
+} from '@mui/material'
 import { makeStyles } from '@mui/styles'
+import { Navigate } from 'react-router-dom'
+import React, { useState } from 'react'
 
 import { auth } from './auth-helper'
 import { signin } from './api-auth'
@@ -31,7 +40,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default props => {
+export default function Signin(props) {
   const classes = useStyles()
 
   const [values, setValues] = useState({
@@ -40,6 +49,10 @@ export default props => {
     password: '',
     redirectToReferrer: false
   })
+
+  const handleChange = name => event => {
+    setValues({ ...values, [name]: event.target.value })
+  }
 
   const clickSubmit = () => {
     const user = {
@@ -57,7 +70,7 @@ export default props => {
     })
   }
 
-  const { from } = props.location.state || {
+  const { from } = props.state || {
     from: {
       pathname: '/'
     }
@@ -65,7 +78,9 @@ export default props => {
 
   const { redirectToReferrer } = values
 
-  if (redirectToReferrer) return <Navigate replace to={from} />
+  if (redirectToReferrer) {
+    return <Navigate replace to={from} />
+  }
 
   return (
     <Card className={classes.card}>

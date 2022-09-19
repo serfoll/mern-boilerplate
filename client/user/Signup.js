@@ -102,11 +102,11 @@ export default () => {
 
           <TextField
             className={classes.textField}
-            id="passowrd"
-            label="Passowrd"
+            id="password"
+            label="Password"
             margin="normal"
-            onChange={handleChange('passowrd')}
-            type="passowrd"
+            onChange={handleChange('password')}
+            type="password"
             value={values.password}
           />
           <br />
